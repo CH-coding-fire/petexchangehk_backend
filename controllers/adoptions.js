@@ -6,11 +6,6 @@ const { v4: uuidv4 } = require('uuid');
 const { default: axios } = require('axios');
 const { cloudinary } = require('../cloudinary/index')
 
-
-
-
-
-
 module.exports.index = async (req, res) => {
 	const hamsters = await Hamster.find({}).populate({ path: 'author' });
 	res.render('adoption/index.ejs', { hamsters });
