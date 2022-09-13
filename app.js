@@ -1,7 +1,4 @@
-// if (process.env.NODE_ENV !== 'production') {
 require('dotenv').config();
-// console.log('asddws',process.env.CLOUDINARY_CLOUD_NAME)
-// }
 const express = require('express')
 const app = express();
 const session = require('express-session');
@@ -22,8 +19,8 @@ const database = 'pet-service';
 
 mongoose
 	.connect(`mongodb://localhost:27017/${database}`, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
+		// useNewUrlParser: true,
+		// useUnifiedTopology: true,
 	})
 	.then(() => {
 		try {
@@ -72,11 +69,7 @@ app.use('/auth', authRoute);
 app.get('/', (req, res) => {
 	res.send('hello TESTING, successful!');
 });
-app.get('/fakeUser', async (req, res) => {
-	const user = new User({ email: 'colt123@gmail.com', username: 'colt123' });
-	const newUser = await User.register(user, 'chicken');
-	res.send(newUser);
-});
+
 app.get('/req', async (req, res) => {
 	console.log('from app req.user:', req.user);
 	console.log('from app req.body:', req.body);
