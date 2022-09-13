@@ -101,9 +101,9 @@ const httpsServer = https.createServer(httpsOptions, app)
 // })
 
 const connect_mode = 'express_vanilla'
-const PORT1 = 8080;
+const PORT = process.env.PORT || 8080;
 if (connect_mode == 'express_vanilla') {
-	app.listen(process.env.PORT || PORT1, () => {
+	app.listen(PORT, () => {
 		const today = new Date();
 		console.log(
 			`*********  Express: LISTENING TO PORT: ${PORT} at ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()} *********`
