@@ -86,15 +86,15 @@ app.post('/req', async (req, res) => {
 	console.log('from app req.body:', req.body);
 });
 
-const https = require('https');
-const hostname = "localhost"
-const httpsOptions = {
-	cert: fs.readFileSync('./ssl/www_petexchangehk_com.crt'),
-	ca: fs.readFileSync('./ssl/www_petexchangehk_com.ca-bundle'),
-	// key: fs.readFileSync('./ssl/csr.pem'),
-	key: fs.readFileSync('./ssl/private.key'),
-}
-const httpsServer = https.createServer(httpsOptions, app)
+// const https = require('https');
+// const hostname = "localhost"
+// const httpsOptions = {
+// 	cert: fs.readFileSync('./ssl/www_petexchangehk_com.crt'),
+// 	ca: fs.readFileSync('./ssl/www_petexchangehk_com.ca-bundle'),
+// 	// key: fs.readFileSync('./ssl/csr.pem'),
+// 	key: fs.readFileSync('./ssl/private.key'),
+// }
+// const httpsServer = https.createServer(httpsOptions, app)
 //method from https://adamtheautomator.com/https-nodejs/
 // https.createServer(httpsOptions,app).listen(PORT, () => {
 // 	console.log('server is running at port 8080')
