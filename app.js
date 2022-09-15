@@ -18,9 +18,9 @@ const cors = require('cors');
 const database = 'pet-service';
 
 mongoose
-	.connect(`mongodb://localhost:27017/${database}`, {
-		// useNewUrlParser: true,
-		// useUnifiedTopology: true,
+	.connect(process.env.MONGODB_ATLAS_URL ||`mongodb://localhost:27017/${database}`, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
 	})
 	.then(() => {
 		try {
