@@ -8,6 +8,7 @@ const passportSetup = require('./passport');
 const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
 const fs = require('fs')
+const Animal = require('./models/animal');
 
 //*Above is for libraries, below is for modules
 const adoptionRoute = require('./routes/adoptions');
@@ -15,10 +16,12 @@ const usersRoute = require('./routes/users');
 const authRoute = require('./routes/auth');
 const User = require('./models/users');
 const cors = require('cors');
+const animal = require('./models/animal');
 const database = 'pet-service';
 
 mongoose
-	.connect(`${process.env.MONGODB_ATLAS_URL}${database}` ||`mongodb://localhost:27017/${database}`, {
+	.connect(`${process.env.MONGODB_ATLAS_URL_PET_SERVICE}` || `mongodb://localhost:27017/${database}`, {
+
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	})
@@ -33,6 +36,15 @@ mongoose
 			throw new Error(error.message)
 		}
 	});
+
+const testAnimalData = async () => {
+	console.log('trying to get animal data...testing');
+	// console.log(typeof(Animal))
+	const animals = await Animal.find()
+	console.log('animal data:', animals)
+}
+
+// testAnimalData()
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: true }));

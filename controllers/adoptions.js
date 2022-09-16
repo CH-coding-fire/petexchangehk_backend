@@ -17,6 +17,8 @@ module.exports.loadAnimals = async (req, res) => {
 };
 
 
+
+
 module.exports.updateAnimal = async (req, res) => {
 	console.log("req.body", req.body);
 	try {
