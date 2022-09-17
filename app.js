@@ -18,7 +18,7 @@ const User = require('./models/users');
 const cors = require('cors');
 const animal = require('./models/animal');
 const database = 'pet-service';
-const cors = require('cors')
+// const cors = require('cors')
 
 
 mongoose
