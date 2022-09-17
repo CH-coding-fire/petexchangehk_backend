@@ -2,13 +2,13 @@ const passport = require('passport');
 const Users = require('../models/users');
 const router = require('express').Router();
 
-router.use(
-	cors({
-		origin: process.env.FRONTEND_URL||'http://localhost:3000',
-		methods: 'GET, POST, PUT,DELETE',
-		credentials: true,
-	})
-);
+// router.use(
+// 	cors({
+// 		origin: process.env.FRONTEND_URL||'http://localhost:3000',
+// 		methods: 'GET, POST, PUT,DELETE',
+// 		credentials: true,
+// 	})
+// );
 
 router.get(
 	'/google',
