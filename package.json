@@ -1,7 +1,6 @@
 {
   "name": "petexchangehk_backend",
   "version": "1.0.0",
-
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -15,7 +14,6 @@
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
     "cloudinary": "^1.28.1",
-
     "connect-flash": "^0.1.1",
     "cookie-session": "^2.0.0",
     "cors": "^2.8.5",

@@ -1,6 +1,7 @@
 const passport = require('passport');
 const Users = require('../models/users');
 const router = require('express').Router();
+const cors = require('cors')
 
 // router.use(
 // 	cors({
@@ -24,7 +25,7 @@ router.get(
 );
 
 // Run after it auth from google is successful
-router.get('/login/success', async (req, res) => {
+router.get('/login/success', cors(), async (req, res) => {
 	console.log('REQ.USER:LOGIN/SUCCESS', req.user);
 	if (req.user) {
 		let user = await Users.find({ userId: req.user.id }).then(async (user) => {
