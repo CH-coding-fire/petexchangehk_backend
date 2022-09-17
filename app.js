@@ -18,6 +18,8 @@ const User = require('./models/users');
 const cors = require('cors');
 const animal = require('./models/animal');
 const database = 'pet-service';
+const cors = require('cors')
+
 
 mongoose
 	.connect(`${process.env.MONGODB_ATLAS_URL_PET_SERVICE}` || `mongodb://localhost:27017/${database}`, {
@@ -70,6 +72,11 @@ const sessionConfig = {
 	// },
 };
 
+var corsOptions = {
+  origin: process.env.FRONTEND_URL,
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
 app.use(bodyParser.json());
 app.use(session(sessionConfig));
 app.use(passport.initialize());
@@ -77,7 +84,7 @@ app.use(passport.session());
 
 app.use('/adoptions', adoptionRoute);
 app.use('/users', usersRoute);
-app.use('/auth', authRoute);
+app.use('/auth', cors(), authRoute);
 app.get('/', (req, res) => {
 	res.send('hello TESTING, successful!');
 });
