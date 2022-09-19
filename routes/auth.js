@@ -83,7 +83,7 @@ router.get('/login/success', cors({
 			});
 		});
 	}
-	res.status(200).json({ 'status': 'not login' })
+	// res.status(200).json({ 'status': 'not login' })
 
 
 });
