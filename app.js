@@ -57,13 +57,13 @@ var corsOptions = {
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
-// app.use(
-	// cors({
-	// 	origin: [process.env.FRONTEND_URL, 'http://localhost:3000'],
-	// 	methods: 'GET, POST, PUT,DELETE',
-	// 	credentials: true,
-	// })
-// );
+app.use(
+	cors({
+		origin: [process.env.FRONTEND_URL, 'http://localhost:3000'],
+		methods: 'GET, POST, PUT,DELETE',
+		credentials: true,
+	})
+);
 
 //testing if that env is working in heroku, it works, 5:22 pm Monday, 19 September 2022 (HKT)
 console.log('what is the frontend URL? :', process.env.FRONTEND_URL)
