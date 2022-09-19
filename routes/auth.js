@@ -25,7 +25,11 @@ router.get(
 );
 
 // Run after it auth from google is successful
-router.get('/login/success', cors(), async (req, res) => {
+router.get('/login/success', cors({
+		origin: [process.env.FRONTEND_URL, 'http://localhost:3000'],
+		methods: 'GET, POST, PUT,DELETE',
+		credentials: true,
+	}), async (req, res) => {
 	console.log('REQ.USER:LOGIN/SUCCESS', req.user);
 	if (req.user) {
 		let user = await Users.find({ userId: req.user.id }).then(async (user) => {
