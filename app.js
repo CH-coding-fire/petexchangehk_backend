@@ -58,11 +58,11 @@ var corsOptions = {
 }
 
 app.use(
-	cors({
-		origin: [process.env.FRONTEND_URL, 'http://localhost:3000'],
-		methods: 'GET, POST, PUT,DELETE',
-		credentials: true,
-	})
+	// cors({
+	// 	origin: [process.env.FRONTEND_URL, 'http://localhost:3000'],
+	// 	methods: 'GET, POST, PUT,DELETE',
+	// 	credentials: true,
+	// })
 );
 
 //testing if that env is working in heroku, it works, 5:22 pm Monday, 19 September 2022 (HKT)
