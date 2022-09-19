@@ -53,13 +53,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 
-app.use(
-	cors({
-		origin: [process.env.FRONTEND_URL, 'http://localhost:3000'],
-		methods: 'GET, POST, PUT,DELETE',
-		credentials: true,
-	})
-);
+// app.use(
+// 	cors({
+// 		origin: [process.env.FRONTEND_URL, 'http://localhost:3000'],
+// 		methods: 'GET, POST, PUT,DELETE',
+// 		credentials: true,
+// 	})
+// );
+
+app.use(cors())
 
 const sessionConfig = {
 	secret: 'thisshouldbeabettersecret!',
