@@ -60,6 +60,8 @@ app.use(
 	})
 );
 
+console.log('what is the frontend URL? :', process.env.FRONTEND_URL)
+
 // app.use(cors())
 
 const sessionConfig = {
