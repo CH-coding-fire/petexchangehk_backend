@@ -55,7 +55,7 @@ router.get(
 // 	}
 // });
 
-router.get('/login/success', async (req, res) => {
+router.get('/login/success', cors(), async (req, res) => {
 	console.log('REQ.USER:LOGIN/SUCCESS', req.user);
 	res.status(200).json({ 'status': 'ok' })
 
