@@ -66,6 +66,11 @@ router.get('/login/success', cors({
 
 	if (req.user) {
 		console.log('try finding user')
+
+		//* ok, I already know that the below code will not execute if req.user is undefined
+		//* req.user is undefined now, but in what situation it will be defined?
+		//* so, I guess if frontend embedded cookie, the server will recognize it
+		//* and then in req.user have information
 		let user = await Users.find({ userId: req.user.id }).then(async (user) => {
 			console.log('see if user param is passed', user);
 			if (user.length !== 0) {
@@ -85,7 +90,7 @@ router.get('/login/success', cors({
 			});
 		});
 	}
-	res.json({ Server_message: 'ok receive, res.send to end the request' })
+	res.json({ Server_message: 'no user, have not login' })
 
 
 });
