@@ -62,7 +62,7 @@ router.get('/login/success', cors({
 		credentials: true,
 	}), async (req, res) => {
 	console.log('REQ.USER:LOGIN/SUCCESS', req.user);
-	res.send('ok receive, res.send to end the request')
+	res.json({ Server_message: 'ok receive, res.send to end the request' })
 
 
 	if (req.user) {
