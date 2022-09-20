@@ -66,7 +66,6 @@ router.get('/login/success', cors({
 
 	if (req.user) {
 		console.log('try finding user')
-
 		//* ok, I already know that the below code will not execute if req.user is undefined
 		//* req.user is undefined now, but in what situation it will be defined?
 		//* so, I guess if frontend embedded cookie, the server will recognize it
@@ -90,7 +89,7 @@ router.get('/login/success', cors({
 			});
 		});
 	}
-	res.json({ message: 'no user, have not login' })
+	res.end('no user, have not login') //*
 
 
 });
