@@ -33,26 +33,26 @@ router.get(
 // 	}), async (req, res) => {
 // 	console.log('REQ.USER:LOGIN/SUCCESS', req.user);
 // 	res.status(200).json({ 'status': 'ok' })
-	// if (req.user) {
-	// 	let user = await Users.find({ userId: req.user.id }).then(async (user) => {
-	// 		console.log('see if user param is passed', user);
-	// 		if (user.length !== 0) {
-	// 			console.log('this user has userId, he already registed!!');
-	// 		} else {
-	// 			console.log('this use is new... building new userId...');
-	// 			await Users.create({ userId: req.user.id });
-	// 		}
-	// 		// console.log('USER_NICK', user.[].nickname);
-	// 		res.status(200).json({
-	// 			success: true,
-	// 			// message: 'successful nice',
-	// 			thirdPartyUser: req.user,
-	// 			nickname: user[0].nickname,
-	// 			contact: user[0].contact,
-	// 			cookies: req.cookies,
-	// 		});
-	// 	});
-	// }
+// 	if (req.user) {
+// 		let user = await Users.find({ userId: req.user.id }).then(async (user) => {
+// 			console.log('see if user param is passed', user);
+// 			if (user.length !== 0) {
+// 				console.log('this user has userId, he already registed!!');
+// 			} else {
+// 				console.log('this use is new... building new userId...');
+// 				await Users.create({ userId: req.user.id });
+// 			}
+// 			// console.log('USER_NICK', user.[].nickname);
+// 			res.status(200).json({
+// 				success: true,
+// 				// message: 'successful nice',
+// 				thirdPartyUser: req.user,
+// 				nickname: user[0].nickname,
+// 				contact: user[0].contact,
+// 				cookies: req.cookies,
+// 			});
+// 		});
+// 	}
 // });
 
 router.get('/login/success', cors({
@@ -62,6 +62,8 @@ router.get('/login/success', cors({
 		credentials: true,
 	}), async (req, res) => {
 	console.log('REQ.USER:LOGIN/SUCCESS', req.user);
+	res.send('ok receive, res.send to end the request')
+
 
 	if (req.user) {
 		let user = await Users.find({ userId: req.user.id }).then(async (user) => {
