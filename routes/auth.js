@@ -89,7 +89,7 @@ router.get('/login/success', cors({
 			});
 		});
 	}
-	res.end('no user, have not login') //*
+	res.status(444).json({ 'login': 'false' }) //*
 
 
 });
