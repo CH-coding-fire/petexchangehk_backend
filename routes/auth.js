@@ -89,9 +89,7 @@ router.get('/login/success', cors({
 			});
 		});
 	}
-	res.status(444).json({ 'login': 'false' }) //*
-
-
+	// res.status(444).json({ 'login': 'false' }) //*
 });
 
 router.get('/login/failed', (req, res) => {
