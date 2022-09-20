@@ -62,10 +62,10 @@ router.get('/login/success', cors({
 		credentials: true,
 	}), async (req, res) => {
 	console.log('REQ.USER:LOGIN/SUCCESS', req.user);
-	res.json({ Server_message: 'ok receive, res.send to end the request' })
 
 
 	if (req.user) {
+		console.log('try finding user')
 		let user = await Users.find({ userId: req.user.id }).then(async (user) => {
 			console.log('see if user param is passed', user);
 			if (user.length !== 0) {
@@ -85,7 +85,7 @@ router.get('/login/success', cors({
 			});
 		});
 	}
-	// res.status(200).json({ 'status': 'not login' })
+	res.json({ Server_message: 'ok receive, res.send to end the request' })
 
 
 });
