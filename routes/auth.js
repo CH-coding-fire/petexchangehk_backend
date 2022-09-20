@@ -90,7 +90,7 @@ router.get('/login/success', cors({
 			});
 		});
 	}
-	res.json({ Server_message: 'no user, have not login' })
+	res.json({ message: 'no user, have not login' })
 
 
 });
