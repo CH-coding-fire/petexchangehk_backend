@@ -82,7 +82,14 @@ router.get('/login/success',  async (req, res) => {
 				contact: user[0].contact,
 				cookies: req.cookies,
 			});
+
 		});
+	}
+	if (!req.user) {
+			console.log('req.user is uedefined....')
+		res.json({
+			success:false
+		})
 	}
 	// res.status(444).json({ 'login': 'false' }) //*
 });
