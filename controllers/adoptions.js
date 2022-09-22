@@ -13,7 +13,7 @@ module.exports.index = async (req, res) => {
 
 module.exports.loadAnimals = async (req, res) => {
 	const animals = await Animal.find().populate('creator');
-	await res.json(animals);
+	await res.json(animals); //*
 };
 
 

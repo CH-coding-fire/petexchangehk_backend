@@ -55,12 +55,7 @@ router.get(
 // 	}
 // });
 
-router.get('/login/success', cors({
-	origin: process.env.FRONTEND_URL
-	,
-		methods: 'GET, POST, PUT, DELETE, HEAD',
-		credentials: true,
-	}), async (req, res) => {
+router.get('/login/success',  async (req, res) => {
 	console.log('REQ.USER:LOGIN/SUCCESS', req.user);
 
 

@@ -82,7 +82,10 @@ const sessionConfig = {
 	// },
 };
 app.use(bodyParser.json());
+
+//so express use session, and session is config above
 app.use(session(sessionConfig));
+//
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -96,7 +99,7 @@ app.get('/', (req, res) => {
 	res.send('hello TESTING, successful!');
 });
 
-//! I forgot what is this
+// ! I forgot what is this
 app.get('/req', async (req, res) => {
 	console.log('from app req.user:', req.user);
 	console.log('from app req.body:', req.body);
