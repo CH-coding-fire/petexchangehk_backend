@@ -19,8 +19,9 @@ router.get(
 router.get(
 	'/google/callback',
 	passport.authenticate('google', {
-		// successRedirect: process.env.CLIENT_URL,
-		successRedirect: 'https://yahoo.com/',
+		successRedirect: process.env.CLIENT_URL,
+		//*Ok, it is proven that it is successfull, why req.user is not working
+		// successRedirect: 'https://yahoo.com/',
 
 		failureRedirect: '/login/failed',
 	})
