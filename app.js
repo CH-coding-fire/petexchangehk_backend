@@ -76,7 +76,7 @@ const sessionConfig = {
 	resave: false,
 	saveUninitialized: true,
 	cookie: {
-		// httpOnly: true,
+		httpOnly: false,
 		expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
 		maxAge: 1000 * 60 * 60 * 24 * 7,
 		cookie:{secure:true}
@@ -84,7 +84,6 @@ const sessionConfig = {
 };
 app.use(session(sessionConfig));
 app.use(bodyParser.json());
-
 //so express use session, and session is config above
 //
 app.use(passport.initialize());
