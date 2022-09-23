@@ -105,7 +105,8 @@ app.get('/', (req, res) => {
 app.get('/req', async (req, res) => {
 	console.log('from app req.user:', req.user);
 	console.log('from app req.body:', req.body);
-	res.json({'req.user':req.user, 'req.body':req.body})
+	// res.json({ 'req.user': req.user, 'req.body': req.body })
+	res.end(`The req.user is ${req.user}`)
 });
 
 
