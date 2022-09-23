@@ -20,7 +20,7 @@ router.get(
 	'/google/callback',
 	passport.authenticate('google', {
 		// successRedirect: process.env.CLIENT_URL,
-		successRedirect: 'yahoo.com.hk',
+		successRedirect: 'https://yahoo.com/',
 
 		failureRedirect: '/login/failed',
 	})
