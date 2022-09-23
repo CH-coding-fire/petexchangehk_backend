@@ -74,7 +74,7 @@ console.log('what is the frontend URL? :', process.env.FRONTEND_URL)
 const sessionConfig = {
 	secret: 'thisshouldbeabettersecret!',
 	resave: false,
-	saveUninitialized: true,
+	saveUninitialized: false,
 	cookie: {
 		httpOnly: false,
 		expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
