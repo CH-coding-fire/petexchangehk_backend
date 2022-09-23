@@ -89,7 +89,9 @@ router.get('/login/success',  async (req, res) => {
 	}
 	if (!req.user) {
 			console.log('req.user is uedefined....')
-		res.end('no user!')
+		res.json({
+			success:false
+		})
 	}
 	// res.status(444).json({ 'login': 'false' }) //*
 });
