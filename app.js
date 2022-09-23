@@ -79,7 +79,7 @@ const sessionConfig = {
 		httpOnly: false,
 		expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
 		maxAge: 1000 * 60 * 60 * 24 * 7,
-		cookie:{secure:true}
+		secure:true
 	},
 };
 app.use(session(sessionConfig));
