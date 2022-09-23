@@ -70,7 +70,7 @@ console.log('what is the frontend URL? :', process.env.FRONTEND_URL)
 
 // app.use(cors())
 
-//! This needs attention later.
+//! This needs attention later because of that secret.
 const sessionConfig = {
 	secret: 'thisshouldbeabettersecret!',
 	resave: false,
@@ -82,13 +82,14 @@ const sessionConfig = {
 		cookie:{secure:true}
 	},
 };
+app.use(session(sessionConfig));
 app.use(bodyParser.json());
 
 //so express use session, and session is config above
-app.use(session(sessionConfig));
 //
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session()); //This is a application-level middleware,
+//the session itself can be authenticated using the built-in session strategy
 
 //Below are the routes!
 app.use('/adoptions', adoptionRoute);
@@ -104,11 +105,9 @@ app.get('/', (req, res) => {
 app.get('/req', async (req, res) => {
 	console.log('from app req.user:', req.user);
 	console.log('from app req.body:', req.body);
+	res.json({'req.user':req.user, 'req.body':req.body})
 });
-app.post('/req', async (req, res) => {
-	console.log('from app req.user:', req.user);
-	console.log('from app req.body:', req.body);
-});
+
 
 // const https = require('https');
 // const hostname = "localhost"
