@@ -51,16 +51,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
-
-var corsOptions = {
-  origin: process.env.FRONTEND_URL,
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
-
+//
 app.use(
 	cors({
 		origin: process.env.FRONTEND_URL,
-		methods: 'GET, POST, PUT,DELETE',
 		credentials: true,
 	})
 );
