@@ -102,6 +102,8 @@ app.get('/req', async (req, res) => {
 	res.end(`The req.user is ${req.user}`)
 });
 
+console.log('from app req.session: (wide app)' ,req.session)
+
 
 // const https = require('https');
 // const hostname = "localhost"
