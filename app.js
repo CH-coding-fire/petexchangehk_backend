@@ -91,6 +91,7 @@ app.use('/auth', authRoute);
 //Testing if server works
 app.get('/', (req, res) => {
 	res.send('hello TESTING, successful!');
+
 });
 
 // ! I forgot what is this
@@ -102,7 +103,6 @@ app.get('/req', async (req, res) => {
 	res.end(`The req.user is ${req.user}`)
 });
 
-console.log('from app req.session: (wide app)' ,req.session)
 
 
 // const https = require('https');
