@@ -27,10 +27,12 @@ passport.use(new FacebookStrategy({
 ));
 
 passport.serializeUser((user, done) => {
+	console.log(`serialize: user:${user}`)
 	done(null, user);
 });
 
 passport.deserializeUser((user, done) => {
+	console.log(`deserialize user:${user}`)
 	done(null, user);
 });
 
