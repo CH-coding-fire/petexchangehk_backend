@@ -51,7 +51,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
-//
+
 app.use(
 	cors({
 		origin: process.env.FRONTEND_URL,
@@ -97,6 +97,7 @@ app.get('/', (req, res) => {
 app.get('/req', async (req, res) => {
 	console.log('from app req.user:', req.user);
 	console.log('from app req.body:', req.body);
+	console.log('from app req.session:' ,req.session)
 	// res.json({ 'req.user': req.user, 'req.body': req.body })
 	res.end(`The req.user is ${req.user}`)
 });
