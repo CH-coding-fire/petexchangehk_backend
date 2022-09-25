@@ -72,8 +72,11 @@ const sessionConfig = {
 	cookie: {
 		expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
 		maxAge: 1000 * 60 * 60 * 24 * 7,
+		domain: process.env.SERVER_URL
 		// secure:true
 	},
+
+
 };
 app.use(session(sessionConfig));
 app.use(bodyParser.json());
