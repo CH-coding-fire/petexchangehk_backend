@@ -80,7 +80,7 @@ const sessionConfig = {
 	},
 };
 app.set('trust proxy', 1);
-app.use(cookieParser);
+// app.use(cookieParser);
 app.use(session(sessionConfig));
 app.use(bodyParser.json());
 //so express use session, and session is config above
