@@ -18,6 +18,8 @@ const User = require('./models/users');
 const cors = require('cors');
 const animal = require('./models/animal');
 const database = 'pet-service';
+var cookieParser = require('cookie-parser')
+
 
 //Connect to the database, Atlas or local
 mongoose
@@ -51,6 +53,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
+app.use(cookieParser);
 
 app.use(
 	cors({
