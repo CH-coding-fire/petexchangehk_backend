@@ -1,30 +1,35 @@
 const passport = require('passport');
 const Users = require('../models/users');
 const router = require('express').Router();
-const cors = require('cors')
-
+const cors = require('cors');
+const { targetClientURL } = require('../app');
 // router.use(
 // 	cors({
-// 		origin: process.env.FRONTEND_URL||'http://localhost:3000',
+// 		origin: targetClientURL,
 // 		methods: 'GET, POST, PUT,DELETE',
 // 		credentials: true,
 // 	})
 // );
-
+//
 router.get(
 	'/google',
+	() => {
+		console.log('/google is reached')
 	passport.authenticate('google', { scope: ['profile', 'email'] })
+	}
 );
 
 router.get(
 	'/google/callback',
-	passport.authenticate('google', {
-		successRedirect: process.env.CLIENT_URL,
-		//*Ok, it is proven that it is successfull, why req.user is not working
-		// successRedirect: 'https://yahoo.com/',
-
+	() => {
+		console.log('/google/callback is reached')
+		passport.authenticate('google', {
+		successRedirect: targetClientURL,
+		//*Ok, it is proven that it is successful, why req.user is not working
 		failureRedirect: '/login/failed',
 	})
+	}
+
 );
 
 // Run after it auth from google is successful
@@ -58,13 +63,9 @@ router.get(
 // 	}
 // });
 
-router.get('/login/success',  async (req, res) => {
+router.get('/login/success', async (req, res) => {
 	console.log('REQ.USER:LOGIN/SUCCESS', req.user);
 	console.log('from app req.session: (wide app)', req.session)
-
-
-
-
 	if (req.user) {
 		console.log('try finding user')
 		//* ok, I already know that the below code will not execute if req.user is undefined
@@ -111,7 +112,7 @@ router.get('/login/failed', (req, res) => {
 router.get('/logout', (req, res) => {
 	console.log('REQ.USER:logout', req.user);
 	req.logout();
-	res.redirect(process.env.CLIENT_URL);
+	res.redirect(targetClientURL);
 });
 
 
@@ -125,7 +126,7 @@ router.get('/logout', (req, res) => {
 // router.get('/facebook/callback',
 // 	passport.authenticate('facebook',
 // 		{
-// 			successRedirect: process.env.CLIENT_URLe,
+// 			successRedirect: targetClientURL,
 // 			failureRedirect: '/login'
 // 		}),
 //   function(req, res) {

@@ -20,6 +20,10 @@ const animal = require('./models/animal');
 const database = 'pet-service';
 var cookieParser = require('cookie-parser')
 
+//If .env file have localhost:3000, then it will run it localhost, if not, it runs in deployment
+const targetClientURL = (process.env.FRONTEND_URL_LOCAL_3000 || process.env.CLIENT_URL)
+const thisServerURL = (process.env.SERVER_URL_LOCAL_8080 || process.env.SERVER_URL)
+
 
 //Connect to the database, Atlas or local
 mongoose
@@ -56,14 +60,12 @@ app.use(bodyParser.text());
 
 app.use(
 	cors({
-		origin: process.env.FRONTEND_URL,
+		origin: targetClientURL,
 		credentials: true,
 	})
 );
 
 //testing if that env is working in heroku, it works, 5:22 pm Monday, 19 September 2022 (HKT)
-console.log('what is the frontend URL? :', process.env.FRONTEND_URL)
-
 // app.use(cors())
 
 //! This needs attention later because of that secret.
@@ -74,7 +76,7 @@ const sessionConfig = {
 	cookie: {
 		expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
 		maxAge: 1000 * 60 * 60 * 24 * 7,
-		domain: process.env.SERVER_URL,
+		domain: thisServerURL,
 		sameSite: 'strict'
 		// secure:true
 	},
@@ -104,7 +106,7 @@ app.get('/', (req, res) => {
 app.get('/req', async (req, res) => {
 	console.log('from app req.user:', req.user);
 	console.log('from app req.body:', req.body);
-	console.log('from app req.session:' ,req.session)
+	// console.log('from app req.session:' ,req.session)
 	// res.json({ 'req.user': req.user, 'req.body': req.body })
 	res.end(`The req.user is ${req.user}`)
 });
@@ -134,6 +136,7 @@ if (connect_mode == 'express_vanilla') {
 		console.log(
 			`*********  Express: LISTENING TO PORT: ${PORT} at ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()} *********`
 		);
+		console.log(`The URL of frontend is ${targetClientURL}`)
 	})
 } else if (connect_mode == 'try_https') {
 	httpsServer.listen(PORT, hostname, () => {
@@ -142,6 +145,10 @@ if (connect_mode == 'express_vanilla') {
 }
 
 
+module.exports = {
+	targetClientURL,
+	thisServerURL
+};
 
 
 
