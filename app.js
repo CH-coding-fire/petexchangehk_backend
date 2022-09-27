@@ -76,9 +76,8 @@ const sessionConfig = {
 		sameSite: 'strict'
 		// secure:true
 	},
-
-
 };
+app.set('trust proxy', 1);
 app.use(session(sessionConfig));
 app.use(bodyParser.json());
 //so express use session, and session is config above
