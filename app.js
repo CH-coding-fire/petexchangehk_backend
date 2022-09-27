@@ -53,7 +53,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
-app.use(cookieParser);
 
 app.use(
 	cors({
@@ -81,6 +80,7 @@ const sessionConfig = {
 	},
 };
 app.set('trust proxy', 1);
+app.use(cookieParser);
 app.use(session(sessionConfig));
 app.use(bodyParser.json());
 //so express use session, and session is config above
