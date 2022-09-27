@@ -84,7 +84,7 @@ app.use(session(sessionConfig));
 app.use(bodyParser.json());
 //so express use session, and session is config above
 //
-app.use(cookieParser);
+app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session()); //This is a application-level middleware,
 //the session itself can be authenticated using the built-in session strategy
