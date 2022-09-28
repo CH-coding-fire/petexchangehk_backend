@@ -18,14 +18,11 @@ router.get(
 
 router.get(
 	'/google/callback',
-	() => {
-		console.log('/google/callback is reached')
 		passport.authenticate('google', {
 		successRedirect: targetClientURL,
 		//*Ok, it is proven that it is successful, why req.user is not working
 		failureRedirect: '/login/failed',
 	})
-	}
 
 );
 
