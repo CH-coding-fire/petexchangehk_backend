@@ -1,0 +1,7 @@
+const targetClientURL = (process.env.FRONTEND_URL_LOCAL_3000 || process.env.CLIENT_URL)
+const thisServerURL = (process.env.SERVER_URL_LOCAL_8080 || process.env.SERVER_URL)
+
+module.exports = {
+    targetClientURL,
+    thisServerURL
+};

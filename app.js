@@ -7,7 +7,7 @@ const passport = require('passport');
 const passportSetup = require('./passport');
 const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
-const fs = require('fs')
+// const fs = require('fs')
 const Animal = require('./models/animal');
 
 //*Above is for libraries, below is for modules
@@ -18,11 +18,10 @@ const User = require('./models/users');
 const cors = require('cors');
 const animal = require('./models/animal');
 const database = 'pet-service';
-var cookieParser = require('cookie-parser')
-
+var cookieParser = require('cookie-parser');
+const { targetClientURL } = require('./urlClientAndServer');
+const { thisServerURL } = require('./urlClientAndServer');
 //If .env file have localhost:3000, then it will run it localhost, if not, it runs in deployment
-const targetClientURL = (process.env.FRONTEND_URL_LOCAL_3000 || process.env.CLIENT_URL)
-const thisServerURL = (process.env.SERVER_URL_LOCAL_8080 || process.env.SERVER_URL)
 
 
 //Connect to the database, Atlas or local
@@ -68,16 +67,17 @@ app.use(
 //testing if that env is working in heroku, it works, 5:22 pm Monday, 19 September 2022 (HKT)
 // app.use(cors())
 
+
 //! This needs attention later because of that secret.
 const sessionConfig = {
-	secret: 'thisshouldbeabettersecret!',
+	secret: process.env.COOKIE_SECRET,
 	resave: false,
 	saveUninitialized: false,
 	cookie: {
 		expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
 		maxAge: 1000 * 60 * 60 * 24 * 7,
-		domain: thisServerURL,
-		sameSite: 'strict'
+		// domain: thisServerURL,
+		// sameSite: 'strict'
 		// secure:true
 	},
 };
@@ -145,10 +145,7 @@ if (connect_mode == 'express_vanilla') {
 }
 
 
-module.exports = {
-	targetClientURL,
-	thisServerURL
-};
+
 
 
 

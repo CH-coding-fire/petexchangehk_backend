@@ -2,7 +2,10 @@ const passport = require('passport');
 const Users = require('../models/users');
 const router = require('express').Router();
 const cors = require('cors');
-const { targetClientURL } = require('../app');
+const { targetClientURL } = require('../urlClientAndServer');
+const { thisServerURL } = require('../urlClientAndServer');
+const { consolelogMiddleWare } = require('../middleware');
+
 // router.use(
 // 	cors({
 // 		origin: targetClientURL,
@@ -12,17 +15,19 @@ const { targetClientURL } = require('../app');
 // );
 //
 router.get(
-	'/google',
+	'/google',consolelogMiddleWare,
 	passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
 router.get(
-	'/google/callback',
+	'/google/callback',consolelogMiddleWare, //*ok, testing indicated that this is reached
 		passport.authenticate('google', {
 		successRedirect: targetClientURL,
 		//*Ok, it is proven that it is successful, why req.user is not working
 		failureRedirect: '/login/failed',
-	})
+		})
+
+
 
 );
 
@@ -59,7 +64,7 @@ router.get(
 
 router.get('/login/success', async (req, res) => {
 	console.log('REQ.USER:LOGIN/SUCCESS', req.user);
-	console.log('from app req.session: (wide app)', req.session)
+	// console.log('from app req.session: (wide app)', req)
 	if (req.user) {
 		console.log('try finding user')
 		//* ok, I already know that the below code will not execute if req.user is undefined

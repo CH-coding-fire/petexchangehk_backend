@@ -5,3 +5,9 @@ module.exports.isLoggedIn = (req, res, next) => {
 	}
 	next();
 };
+
+module.exports.consolelogMiddleWare = (req, res, next) => {
+	console.log('reached!')
+	console.log(req.originalUrl)
+	next();
+};
