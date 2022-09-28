@@ -13,10 +13,9 @@ const { targetClientURL } = require('../app');
 //
 router.get(
 	'/google',
-	() => {
-		console.log('/google is reached')
+
 	passport.authenticate('google', { scope: ['profile', 'email'] })
-	}
+
 );
 
 router.get(
