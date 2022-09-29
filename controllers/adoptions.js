@@ -21,6 +21,7 @@ module.exports.loadAnimals = async (req, res) => {
 
 module.exports.updateAnimal = async (req, res) => {
 	console.log("req.body", req.body);
+	console.log('from adoption req.user:', req.user)
 	try {
 		if (!req.user.id) {
 			console.log('user not logged in');

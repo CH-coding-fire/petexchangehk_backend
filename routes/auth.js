@@ -26,9 +26,6 @@ router.get(
 		//*Ok, it is proven that it is successful, why req.user is not working
 		failureRedirect: '/login/failed',
 		})
-
-
-
 );
 
 // Run after it auth from google is successful
@@ -63,6 +60,7 @@ router.get(
 // });
 
 router.get('/login/success', async (req, res) => {
+	console.log('req', req)
 	console.log('REQ.USER:LOGIN/SUCCESS', req.user);
 	// console.log('from app req.session: (wide app)', req)
 	if (req.user) {
@@ -88,7 +86,6 @@ router.get('/login/success', async (req, res) => {
 				contact: user[0].contact,
 				cookies: req.cookies,
 			});
-
 		});
 	}
 	if (!req.user) {
