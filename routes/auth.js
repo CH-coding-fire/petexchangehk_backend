@@ -60,7 +60,7 @@ router.get(
 // });
 
 router.get('/login/success', async (req, res) => {
-	console.log('req', req)
+	// console.log('req', req)
 	console.log('REQ.USER:LOGIN/SUCCESS', req.user);
 	// console.log('from app req.session: (wide app)', req)
 	if (req.user) {
