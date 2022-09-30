@@ -22,7 +22,7 @@ var cookieParser = require('cookie-parser');
 const { targetClientURL } = require('./urlClientAndServer');
 const { thisServerURL } = require('./urlClientAndServer');
 const { basename } = require('path');
-const { console_log_cookies } = require('./middleware');
+const { console_log_cookies, cookiesLogger } = require('./middleware');
 //If .env file have localhost:3000, then it will run it localhost, if not, it runs in deployment
 
 
@@ -76,7 +76,7 @@ app.use(function(req, res, next) {
 // app.use(cors())
 app.use(cookieParser());
 console.log('the targetClientURL is: ', targetClientURL)
-app.use(console_log_cookies)
+app.use(cookiesLogger)
 
 
 //! This needs attention later because of that secret.
@@ -89,8 +89,8 @@ const sessionConfig = {
 		maxAge: 1000 * 60 * 60 * 24 * 7,
 		// domain: thisServerURL,
 		// sameSite: true
-		secure,
-		httpOnly
+		// secure,
+		httpOnly:true
 	},
 };
 // app.set('trust proxy', 1);
