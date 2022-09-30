@@ -61,7 +61,9 @@ router.get(
 
 router.get('/login/success', async (req, res) => {
 	// console.log('req', req)
-	console.log('REQ.USER:LOGIN/SUCCESS', req.user.emails);
+
+	console.log('REQ.USER:LOGIN/SUCCESS', req.user);
+
 	console.log('from app req.cookies from auth.js:', req.cookies);
 
 	// console.log('from app req.session: (wide app)', req)
