@@ -75,6 +75,7 @@ app.use(function(req, res, next) {
 //testing if that env is working in heroku, it works, 5:22 pm Monday, 19 September 2022 (HKT)
 // app.use(cors())
 app.use(cookieParser());
+console.log('the targetClientURL is: ', targetClientURL)
 app.use(console_log_cookies)
 
 
@@ -88,7 +89,8 @@ const sessionConfig = {
 		maxAge: 1000 * 60 * 60 * 24 * 7,
 		// domain: thisServerURL,
 		// sameSite: true
-		// secure:true
+		secure,
+		httpOnly
 	},
 };
 // app.set('trust proxy', 1);

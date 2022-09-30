@@ -12,7 +12,7 @@ module.exports.consolelogMiddleWare = (req, res, next) => {
 	next();
 };
 
-module.exports.console_log_cookies = (req, res, next) => {
-	console.log('printing req.cookies...: ', req.cookies)
+module.exports.cookiesLogger = (req, res, next) => {
+	console.log('PRINTING COOKIES...: ', req.cookies)
 	next();
 };
