@@ -73,6 +73,7 @@ app.use(function(req, res, next) {
 
 //testing if that env is working in heroku, it works, 5:22 pm Monday, 19 September 2022 (HKT)
 // app.use(cors())
+app.use(cookieParser());
 
 
 //! This needs attention later because of that secret.
@@ -88,12 +89,11 @@ const sessionConfig = {
 		secure:true
 	},
 };
-app.set('trust proxy', 1);
+// app.set('trust proxy', 1);
 app.use(session(sessionConfig));
 app.use(bodyParser.json());
 //so express use session, and session is config above
 //
-app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session()); //This is a application-level middleware,
 //the session itself can be authenticated using the built-in session strategy
