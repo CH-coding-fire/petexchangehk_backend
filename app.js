@@ -76,6 +76,7 @@ app.use(function(req, res, next) {
 app.use(cookieParser());
 
 
+
 //! This needs attention later because of that secret.
 const sessionConfig = {
 	secret: process.env.COOKIE_SECRET,
@@ -86,7 +87,7 @@ const sessionConfig = {
 		maxAge: 1000 * 60 * 60 * 24 * 7,
 		// domain: thisServerURL,
 		// sameSite: true
-		secure:true
+		// secure:true
 	},
 };
 // app.set('trust proxy', 1);
@@ -112,7 +113,7 @@ app.get('/', (req, res) => {
 // ! I forgot what is this
 app.get('/req', async (req, res) => {
 	console.log('from app req.user:', req.user);
-	console.log('from app req.body:', req.body);
+	console.log('from app req.cookies:', req.cookies);
 	// console.log('from app req.session:' ,req.session)
 	// res.json({ 'req.user': req.user, 'req.body': req.body })
 	res.end(`The req.user is ${req.user}`)
