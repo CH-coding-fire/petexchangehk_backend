@@ -93,7 +93,7 @@ const sessionConfig = {
 
 		// sameSite: 'none',
 		secure: true,
-		httpOnly:true
+		// httpOnly:true
 	},
 };
 // app.set('trust proxy', 1);
