@@ -21,6 +21,8 @@ const database = 'pet-service';
 var cookieParser = require('cookie-parser');
 const { targetClientURL } = require('./urlClientAndServer');
 const { thisServerURL } = require('./urlClientAndServer');
+const { basename } = require('path');
+const { console_log_cookies } = require('./middleware');
 //If .env file have localhost:3000, then it will run it localhost, if not, it runs in deployment
 
 
@@ -52,11 +54,10 @@ const testAnimalData = async () => {
 }
 // testAnimalData()
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(bodyParser.text());
-
+// app.use(bodyParser.text());
 // app.use(
 // 	cors({
 // 		origin: targetClientURL,
@@ -74,7 +75,7 @@ app.use(function(req, res, next) {
 //testing if that env is working in heroku, it works, 5:22 pm Monday, 19 September 2022 (HKT)
 // app.use(cors())
 app.use(cookieParser());
-
+app.use(console_log_cookies)
 
 
 //! This needs attention later because of that secret.
