@@ -92,7 +92,7 @@ const sessionConfig = {
 
 
 		// sameSite: 'none',
-		secure: true,
+		// secure: true,
 		// httpOnly:true
 	},
 };
