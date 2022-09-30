@@ -85,7 +85,7 @@ const sessionConfig = {
 		maxAge: 1000 * 60 * 60 * 24 * 7,
 		// domain: thisServerURL,
 		// sameSite: true
-		// secure:true
+		secure:true
 	},
 };
 app.set('trust proxy', 1);
