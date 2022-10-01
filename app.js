@@ -89,9 +89,9 @@ const sessionConfig = {
 		// domain: thisServerURL,
 		// domain: targetClientURL,
 		// domain: 'fucker.com',
-		// sameSite: 'none',
+		sameSite: true,
 		// secure: true,
-		httpOnly:true
+		// httpOnly:true
 	},
 };
 app.set('trust proxy', 1);
