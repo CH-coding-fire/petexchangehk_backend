@@ -89,7 +89,7 @@ const sessionConfig = {
 		maxAge: 1000 * 60 * 60 * 24 * 7,
 		// domain: thisServerURL,
 		// domain: targetClientURL,
-		// sameSite: 'none',
+		sameSite: 'none',
 		// secure: true,
 		// httpOnly:true
 	},
