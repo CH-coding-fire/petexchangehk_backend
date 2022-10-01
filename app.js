@@ -59,18 +59,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // app.use(bodyParser.text());
 // app.use(
-	cors({
-		origin: targetClientURL,
-		credentials: true,
-	})
+	// cors({
+	// 	origin: targetClientURL,
+	// 	credentials: true,
+	// })
 
 
-// app.use(function(req, res, next) {
-//   res.header('Access-Control-Allow-Origin', targetClientURL);
-//   res.header('Access-Control-Allow-Credentials', true);
-//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-//   next();
-// });
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', targetClientURL);
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 
 app.use(cookieParser());
 console.log('the targetClientURL is: ', targetClientURL)
