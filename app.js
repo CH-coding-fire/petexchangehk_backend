@@ -86,7 +86,7 @@ const sessionConfig = {
 		maxAge: 1000 * 60 * 60 * 24 * 7,
 		// domain: thisServerURL,
 		// domain: targetClientURL,
-		// domain: 'petexchangehk-frontend.vercel.app',
+		domain: '.petexchangehk-frontend.vercel.app',
 		// domain: 'fuckyoubitch.com',
 
 		// sameSite: true,
