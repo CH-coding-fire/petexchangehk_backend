@@ -90,7 +90,7 @@ const sessionConfig = {
 		// domain: thisServerURL,
 		// domain: targetClientURL,
 		sameSite: 'none',
-		// secure: true,
+		secure: true,
 		// httpOnly:true
 	},
 };
