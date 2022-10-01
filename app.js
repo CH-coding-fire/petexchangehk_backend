@@ -21,8 +21,7 @@ const database = 'pet-service';
 var cookieParser = require('cookie-parser');
 const { targetClientURL } = require('./urlClientAndServer');
 const { thisServerURL } = require('./urlClientAndServer');
-const { basename } = require('path');
-const { console_log_cookies, cookiesLogger } = require('./middleware');
+const { cookiesLogger } = require('./middleware');
 //If .env file have localhost:3000, then it will run it localhost, if not, it runs in deployment
 
 
@@ -88,15 +87,14 @@ const sessionConfig = {
 		expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
 		maxAge: 1000 * 60 * 60 * 24 * 7,
 		// domain: thisServerURL,
-		// domain: targetClientURL,
+		domain: targetClientURL,
 		// domain: 'fucker.com',
-
 		// sameSite: 'none',
 		// secure: true,
 		// httpOnly:true
 	},
 };
-// app.set('trust proxy', 1);
+app.set('trust proxy', 1);
 app.use(session(sessionConfig));
 app.use(bodyParser.json());
 //so express use session, and session is config above
