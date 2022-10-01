@@ -87,6 +87,8 @@ const sessionConfig = {
 		// domain: thisServerURL,
 		// domain: targetClientURL,
 		// domain: 'petexchangehk-frontend.vercel.app',
+		domain: 'fuckyoubitch.com',
+
 		// sameSite: true,
 		// secure: true,
 		// httpOnly:true
