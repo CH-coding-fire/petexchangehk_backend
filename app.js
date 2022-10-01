@@ -87,11 +87,11 @@ const sessionConfig = {
 		expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
 		maxAge: 1000 * 60 * 60 * 24 * 7,
 		// domain: thisServerURL,
-		domain: targetClientURL,
+		// domain: targetClientURL,
 		// domain: 'fucker.com',
 		// sameSite: 'none',
 		// secure: true,
-		// httpOnly:true
+		httpOnly:true
 	},
 };
 app.set('trust proxy', 1);
