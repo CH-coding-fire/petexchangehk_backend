@@ -87,11 +87,11 @@ const sessionConfig = {
 		// domain: thisServerURL,
 		// domain: targetClientURL,
 		domain: '.petexchangehk-frontend.vercel.app',
-		// domain: 'fuckyoubitch.com',
+		// domain: '.frontend.com',
 
 		// sameSite: true,
 		// secure: true,
-		// httpOnly:true
+		httpOnly:false
 	},
 };
 app.set('trust proxy', 1);
